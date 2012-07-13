@@ -37,7 +37,7 @@ parser = argparse.ArgumentParser(
     )
 
 parser.add_argument('-c','--config', dest='config_file', nargs=1, type=argparse.FileType('r'),
-    help='configuration file that specifies serial ports and baud rates for connecting')
+    help='configuration file that specifies default options')
 parser.add_argument('-h', '--help', action='store_true', dest='want_help',
     help='show this help message and exit')
 parser.add_argument('--log', dest='loglevel', action='store', default='INFO',

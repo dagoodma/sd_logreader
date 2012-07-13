@@ -3,7 +3,8 @@ import serial
 import pprint
 import logging
 from SDLogReaderException import *
-
+from serial.tools.list_ports import *
+    
 class SDLogReader:
     """SDLogReader connects to all servers specified the given
        ConfigParser object. Each section represents a different
@@ -19,7 +20,6 @@ class SDLogReader:
         """Constructor for SDLogReader object"""
         self.greeting = """
 Welcome to the sd_logreader tool.
-Enter 'help' for a list of commands.
 """
 
         self.goodbye = """
@@ -29,50 +29,22 @@ Goodbye!"""
         self.want_exit = False
         self.config = config;
         self.config_file = config_file
-        self.connections = dict()
-        self.timeout = self.config.getint('DEFAULT', 'timeout')
+        self.is_connected = False
+        self.connection = None
+        self.connection_port = None
+        self.connection_baud = self.config.get('DEFAULT','baud')
+        self.connection_timeout = self.config.getint('DEFAULT', 'timeout')
         self.last_id = 0
-
-        # Read config and connect to serial ports
-        logging.debug('Connecting to devices: ' + str(self.config.sections()))
-        for device in self.config.sections():
-            if (not self.config.has_option(device, 'port')):
-                raise MissingPortException(self.config_file, device)
-            
-            port = self.config.get(device,'port')
-            baud = self.config.get('DEFAULT','baud') # default
-
-            logging.debug('Connecting to \'' + device + '\' on port: ' + str(port) + ', with baudrate: ' + str(baud))
-            
-            if (self.config.has_option(device,'baud')):
-                baud = self.config.get(device,'baud')
-            
-            # Connect to port
-            self.connections[device] = 'test'
-            """serial.Serial(
-                port = port,
-                baudrate = baud,
-                timeout = self.timeout
-                )
-            )
-            """
-            logging.info('Connected to: ' + device)
-
-
-        logging.debug('Finished connecting to devices')
 
     """Deconstructor for SDLogReader. Disconnects from all open serial
        ports.
     """
     def __del__(self):
-        logging.debug('Disconnecting from devices: ' + str(self.connections.keys()))
-        for device in self.connections.iterkeys():
-            """
-            self.connections(device).close()
-            """
-            logging.info('Disconnected from: ' + device)
-
-        logging.debug('Disconnected from all devices')
+        # Are we connected?
+        if (self.is_connected and self.connection):
+            logging.debug('Disconnecting from device: ' + self.connection_port)
+            self.connection.close()
+            logging.info('Disconnected from device: ' + self.connection_port)
 
 
     """Prints a help message listing the available commands.
@@ -99,7 +71,35 @@ exit \t\t exits and disconnects from the devices
     """
     def start(self):
         print(self.greeting)
+        pp = pprint.PrettyPrinter(indent=4)
 
+        # Build a port list
+        port_list_all = comports()
+        port_list = list()
+        for device in port_list_all:
+            port_list.append(device[0])
+
+        # Determine serial port to connect to
+        print('Available serial ports:')
+        self.show_ports(port_list)
+        user_input = raw_input('Choose a port: ')
+        self.connection_port = user_input.strip()
+        user_input = raw_input('Choose a baudrate [' + str(self.connection_baud) + ']: ')
+        if (user_input):
+            self.connection_baud = int(user_input.strip())
+
+        # Connect to the given port
+        logging.debug('Connecting to \'' + self.connection_port + '\' with baudrate: ' + str(self.connection_baud))
+        self.connection = serial.Serial(port = self.connection_port, baudrate = self.connection_baud, timeout=self.connection_timeout)
+        self.is_connected = True
+        logging.info('Connected to: ' + self.connection_port)
+        print('Successfully connected to \'' + self.connection_port + '\'.\n')
+
+        #TODO Error handling for connections and a retry loop
+
+        print('Enter a command. For a list type \'help\'.')
+
+        # Main loop
         while (not self.want_exit):
             user_input = raw_input(self.prompt)
             user_input = user_input.strip().lower()
@@ -117,18 +117,35 @@ exit \t\t exits and disconnects from the devices
             else:
                 print 'Unknown command: ' + str(user_input) + '\nUse \'help\' for a list of valid commands.'
 
+    """Lists the available serial ports.
+    """
+    def show_ports(self, port_list):
+
+        for port in port_list:
+            print('\t' + port)
 
 
-    """Lists log files from each device as and ID with a size.
+    """Lists log files from the connected device with an ID and a size.
     """
     def show_listing():
-        # Clear size dictionary to repopulate
+        # Ensure a connection was made
 
-        # Iterate through each device
-        for
-            # Request size of log over serial
+        # Request log file sizes over serial
 
-            # Add retrieved size to dictionary with associated id
+        # Parse response into a list to show the user
 
 
-        # Print the 
+    """Requests the file with the given ID from the connected device.
+    """
+    def dump_file(id):
+        # Ensure a connection was made
+
+        # Ensure file with the given id exists
+        logging.debug('Retrieving log file ' + str(id) + ' (' + str(size) + ')')
+        
+
+        # Request file over serial
+
+        logging.info('Recieved log file ' + str(id))
+
+        # Dump to terminal (for now)

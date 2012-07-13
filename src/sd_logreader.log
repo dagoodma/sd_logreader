@@ -1,14 +1,8 @@
 INFO:root:Started
 DEBUG:root:Initializing SDLogReader
-DEBUG:root:Connecting to devices: ['Device1', 'Device2']
-DEBUG:root:Connecting to 'Device1' on port: /dev/ttyUSB0, with baudrate: 9600
-INFO:root:Connected to: Device1
-DEBUG:root:Connecting to 'Device2' on port: /dev/ttyUSB1, with baudrate: 9600
-INFO:root:Connected to: Device2
-DEBUG:root:Finished connecting to devices
 DEBUG:root:Starting SDLogReader
-INFO:root:Finished
-DEBUG:root:Disconnecting from devices: ['Device1', 'Device2']
-INFO:root:Disconnected from: Device1
-INFO:root:Disconnected from: Device2
-DEBUG:root:Disconnected from all devices
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' with baudrate: 9600
+INFO:root:Connected to: /dev/tty.Bluetooth-PDA-Sync
+INFO:root:Exiting
+DEBUG:root:Disconnecting from device: /dev/tty.Bluetooth-PDA-Sync
+INFO:root:Disconnected from device: /dev/tty.Bluetooth-PDA-Sync
