@@ -1,127 +1,14 @@
 INFO:root:Started
-INFO:root:Started
-INFO:root:Started
-ERROR:root:SDLogReader failed:name 'SDLogReader' is not defined
-Traceback (most recent call last):
-  File "sd_logreader.py", line 86, in <module>
-    mySDReader = SDLogReader.SDLogReader(
-NameError: name 'SDLogReader' is not defined
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Connecting to devices: ['Device1', 'Device2']
+DEBUG:root:Connecting to 'Device1' on port: /dev/ttyUSB0, with baudrate: 9600
+INFO:root:Connected to: Device1
+DEBUG:root:Connecting to 'Device2' on port: /dev/ttyUSB1, with baudrate: 9600
+INFO:root:Connected to: Device2
+DEBUG:root:Finished connecting to devices
+DEBUG:root:Starting SDLogReader
 INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:name 'SDLogReader' is not defined
-Traceback (most recent call last):
-  File "sd_logreader.py", line 86, in <module>
-    mySDReader = SDLogReader.SDLogReader(
-NameError: name 'SDLogReader' is not defined
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:name 'SDLogReader' is not defined
-Traceback (most recent call last):
-  File "sd_logreader.py", line 86, in <module>
-    mySDReader = SDLogReader.SDLogReader(
-NameError: name 'SDLogReader' is not defined
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:SDLogReader instance has no attribute 'initialize'
-Traceback (most recent call last):
-  File "sd_logreader.py", line 89, in <module>
-    mySDReader.initialize()
-AttributeError: SDLogReader instance has no attribute 'initialize'
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:SDLogReader instance has no attribute 'start'
-Traceback (most recent call last):
-  File "sd_logreader.py", line 93, in <module>
-    mySDReader.start()
-AttributeError: SDLogReader instance has no attribute 'start'
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:ConfigParser instance has no attribute 'path'
-Traceback (most recent call last):
-  File "sd_logreader.py", line 88, in <module>
-    config = config_obj)
-  File "library/SDLogReader.py", line 19, in __init__
-    raise MissingPortException(config.path, section)
-AttributeError: ConfigParser instance has no attribute 'path'
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:__init__() takes exactly 4 arguments (3 given)
-Traceback (most recent call last):
-  File "sd_logreader.py", line 89, in <module>
-    config_file = config_filename)
-  File "library/SDLogReader.py", line 21, in __init__
-    raise MissingPortException(self.config_file, section)
-TypeError: __init__() takes exactly 4 arguments (3 given)
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:__init__() takes exactly 4 arguments (3 given)
-Traceback (most recent call last):
-  File "sd_logreader.py", line 89, in <module>
-    config_file = config_filename)
-  File "library/SDLogReader.py", line 21, in __init__
-    raise MissingPortException(self.config_file, section)
-TypeError: __init__() takes exactly 4 arguments (3 given)
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:
-Traceback (most recent call last):
-  File "sd_logreader.py", line 89, in <module>
-    config_file = config_filename)
-  File "library/SDLogReader.py", line 21, in __init__
-    raise MissingPortException(self.config_file, section)
-MissingPortException
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:
-Traceback (most recent call last):
-  File "sd_logreader.py", line 89, in <module>
-    config_file = config_filename)
-  File "library/SDLogReader.py", line 21, in __init__
-    raise MissingPortException(self.config_file, section)
-MissingPortException
-INFO:root:Finished
-INFO:root:Started
-INFO:root:Started
-INFO:root:Started
-ERROR:root:SDLogReader failed:Config exception (.config.cfg): section 'Device3' missing port option
-Traceback (most recent call last):
-  File "sd_logreader.py", line 89, in <module>
-    config_file = config_filename)
-  File "library/SDLogReader.py", line 21, in __init__
-    raise MissingPortException(self.config_file, section)
-MissingPortException: Config exception (.config.cfg): section 'Device3' missing port option
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:section 'Device3' missing port option in: .config.cfg
-Traceback (most recent call last):
-  File "sd_logreader.py", line 89, in <module>
-    config_file = config_filename)
-  File "library/SDLogReader.py", line 21, in __init__
-    raise MissingPortException(self.config_file, section)
-MissingPortException: section 'Device3' missing port option in: .config.cfg
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:section 'Device3' missing port option in .config.cfg
-Traceback (most recent call last):
-  File "sd_logreader.py", line 89, in <module>
-    config_file = config_filename)
-  File "library/SDLogReader.py", line 21, in __init__
-    raise MissingPortException(self.config_file, section)
-MissingPortException: section 'Device3' missing port option in .config.cfg
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:section 'Device3' missing port option in .config.cfg
-Traceback (most recent call last):
-  File "sd_logreader.py", line 89, in <module>
-    config_file = config_filename)
-  File "library/SDLogReader.py", line 21, in __init__
-    raise MissingPortException(self.config_file, section)
-MissingPortException: section 'Device3' missing port option in .config.cfg
-INFO:root:Finished
-INFO:root:Started
-ERROR:root:SDLogReader failed:SDLogReader instance has no attribute 'start'
-Traceback (most recent call last):
-  File "sd_logreader.py", line 94, in <module>
-    mySDReader.start()
-AttributeError: SDLogReader instance has no attribute 'start'
-INFO:root:Finished
+DEBUG:root:Disconnecting from devices: ['Device1', 'Device2']
+INFO:root:Disconnected from: Device1
+INFO:root:Disconnected from: Device2
+DEBUG:root:Disconnected from all devices

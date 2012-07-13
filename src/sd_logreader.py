@@ -32,7 +32,7 @@ parser = argparse.ArgumentParser(
     description='''
  Connects to Animus GPS devices and lists or retrieves logged data
  from their associated SD card.''',
-    usage='sd_logreader.py -h | [-c config_file]',
+    usage='sd_logreader.py -h | [--log=LEVEL] [-c config_file] ',
     add_help=False
     )
 
@@ -40,6 +40,8 @@ parser.add_argument('-c','--config', dest='config_file', nargs=1, type=argparse.
     help='configuration file that specifies serial ports and baud rates for connecting')
 parser.add_argument('-h', '--help', action='store_true', dest='want_help',
     help='show this help message and exit')
+parser.add_argument('--log', dest='loglevel', action='store', default='INFO',
+    help='sets the logging level for messages', choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'])
 # parser.add_argument('-m','--help','--more', action='store_true',
 #    dest='more', help='prints a help message about infile.')
 
@@ -74,8 +76,8 @@ logFileName = config_obj.get('DEFAULT', 'logfile')
 
 # --------------------------------
 # Initialize logger
-
-logging.basicConfig(filename=logFileName,level=logging.INFO)
+loglevel = getattr(logging, str(args_obj.loglevel).upper())
+logging.basicConfig(filename=logFileName,level=loglevel)
 logging.info('Started')
 
 #pp.pprint(config_obj.sections())
@@ -94,6 +96,9 @@ try:
     mySDReader.start()
 except Exception, ex:
     logging.exception('SDLogReader failed:' + str(ex))
-    print 'Fatal exception: ' + str(ex)
+    # print 'Fatal exception: ' + str(ex)
+    raise
 
-logging.info('Finished')
+
+
+logging.info('Exiting')
