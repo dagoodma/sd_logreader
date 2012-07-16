@@ -1,8 +1,211 @@
 INFO:root:Started
 DEBUG:root:Initializing SDLogReader
-DEBUG:root:Starting SDLogReader
-DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' with baudrate: 9600
+DEBUG:root:Validating port 'None'
+DEBUG:root:Validating port 'None'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port 'None'
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '9600'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port 'None'
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '9600'
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' with baud rate: 9600
+ERROR:root:SDLogReader failed:Not a valid timeout: '6'
+Traceback (most recent call last):
+  File "sd_logreader.py", line 115, in <module>
+    timeout = timeout
+  File "library/SDLogReader.py", line 54, in __init__
+    self.connection = serial.Serial(port = self.device_port, baudrate = self.baud_rate, timeout=self.timeout)
+  File "library/serial/serialutil.py", line 253, in __init__
+    self.timeout  = timeout
+  File "library/serial/serialutil.py", line 375, in setTimeout
+    raise ValueError("Not a valid timeout: %r" % (timeout,))
+ValueError: Not a valid timeout: '6'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port 'None'
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '9600'
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' with baud rate: 9600
 INFO:root:Connected to: /dev/tty.Bluetooth-PDA-Sync
-INFO:root:Exiting
+DEBUG:root:Starting SDLogReader
+ERROR:root:SDLogReader failed:SDLogReader instance has no attribute 'start'
+Traceback (most recent call last):
+  File "sd_logreader.py", line 121, in <module>
+    mySDReader.start()
+AttributeError: SDLogReader instance has no attribute 'start'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port 'None'
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '9600'
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' with baud rate: 9600
+INFO:root:Connected to: /dev/tty.Bluetooth-PDA-Sync
+DEBUG:root:Starting SDLogReader
+ERROR:root:SDLogReader failed:SDLogReader instance has no attribute 'start'
+Traceback (most recent call last):
+  File "sd_logreader.py", line 121, in <module>
+    mySDReader.start()
+AttributeError: SDLogReader instance has no attribute 'start'
 DEBUG:root:Disconnecting from device: /dev/tty.Bluetooth-PDA-Sync
 INFO:root:Disconnected from device: /dev/tty.Bluetooth-PDA-Sync
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+ERROR:root:SDLogReader failed: ask_connect() takes no arguments (1 given)
+Traceback (most recent call last):
+  File "sd_logreader.py", line 116, in <module>
+    timeout = timeout,
+  File "library/SDLogReader.py", line 49, in __init__
+    self.ask_connect()
+TypeError: ask_connect() takes no arguments (1 given)
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port 'None'
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '9600'
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 9600 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in interactive mode
+ERROR:root:SDLogReader failed: SDLogReader instance has no attribute 'start'
+Traceback (most recent call last):
+  File "sd_logreader.py", line 125, in <module>
+    mySDReader.start()
+AttributeError: SDLogReader instance has no attribute 'start'
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port 'None'
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '9600'
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 9600 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in interactive mode
+ERROR:root:SDLogReader failed: execute_command() takes exactly 1 argument (2 given)
+Traceback (most recent call last):
+  File "sd_logreader.py", line 125, in <module>
+    mySDReader.start_terminal()
+  File "library/SDLogReader.py", line 177, in start_terminal
+    self.execute_command(user_input)
+TypeError: execute_command() takes exactly 1 argument (2 given)
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port 'None'
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '9600'
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 9600 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in interactive mode
+INFO:root:Exiting
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+INFO:root:Started
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Exiting
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port 'None'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+ERROR:root:SDLogReader failed: 
+Traceback (most recent call last):
+  File "sd_logreader.py", line 118, in <module>
+    interactive = interactive
+  File "library/SDLogReader.py", line 45, in __init__
+    raise MissingArgumentException('device')
+MissingArgumentException
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+ERROR:root:SDLogReader failed: Expected 'device' argument missing
+Traceback (most recent call last):
+  File "sd_logreader.py", line 118, in <module>
+    interactive = interactive
+  File "library/SDLogReader.py", line 45, in __init__
+    raise MissingArgumentException('device')
+MissingArgumentException: Expected 'device' argument missing
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+ERROR:root:SDLogReader failed: Expected 'device' argument was missing
+Traceback (most recent call last):
+  File "sd_logreader.py", line 118, in <module>
+    interactive = interactive
+  File "library/SDLogReader.py", line 45, in __init__
+    raise MissingArgumentException('device')
+MissingArgumentException: Expected 'device' argument was missing
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 9600 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in non-interactive mode
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 9600 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in non-interactive mode
+INFO:root:Exiting
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+ERROR:root:SDLogReader failed: Expected 'baud' argument was missing
+Traceback (most recent call last):
+  File "sd_logreader.py", line 118, in <module>
+    interactive = interactive
+  File "library/SDLogReader.py", line 47, in __init__
+    raise MissingArgumentException('baud')
+MissingArgumentException: Expected 'baud' argument was missing
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 9600 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in non-interactive mode
+INFO:root:Exiting
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 9600 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in non-interactive mode
+INFO:root:Exiting
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '9600'
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 9600 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in interactive mode
+INFO:root:Exiting
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '9600'
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 9600 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in interactive mode
+INFO:root:Exiting
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Started
+DEBUG:root:Initializing SDLogReader
+DEBUG:root:Validating port '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Validating baud_rate '115200'
+DEBUG:root:Connecting to '/dev/tty.Bluetooth-PDA-Sync' at 115200 baud
+INFO:root:Connected to '/dev/tty.Bluetooth-PDA-Sync'
+DEBUG:root:Starting SDLogReader in interactive mode
+INFO:root:Exiting
+DEBUG:root:Disconnecting from device '/dev/tty.Bluetooth-PDA-Sync'
+INFO:root:Disconnected from device '/dev/tty.Bluetooth-PDA-Sync'

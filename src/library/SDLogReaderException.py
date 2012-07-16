@@ -12,28 +12,54 @@ class SDLogReaderException(Exception):
     pass
 
 class ConfigException(SDLogReaderException):
-    """This exception is raised when something is wrong with the
-       config file.
+    """\
+    Raised when config file errors occur.
 
-    Keyword arguments:
-        file -- config file that was loaded
-        message  -- a message explaining the error
+    Args:
+        file (str): config file that was loaded
+        message (str):  a message explaining the error
     """
-
-    def __init__(self, file, message):
-        self.file = file
+    def __init__(self, message, file=None):
         self.message = message
+        self.file = file
 
-    def str():
-        return  self.message + ' in ' + str(self.file)
+    def str(self):
+        message = self.message
+        if (self.file):
+            message += ' in {0}'.format(self.file)
+        
+        return message
 
 class NotConnectedException(SDLogReaderException):
-    """This exception is raised when an action is attempted when no
-       connection has been made.
-    """
+    """\
+    Raised when not connected and should have been. 
 
-    def __init__(self):
+    Args:
+        message (str): optional explaination message
+
+    """
+    def __init__(self,message=None):
+        self.message = message
+
+    def str(self):
+        message = 'Not connected'
+        if (self.message):
+            message += ': {0}'.format(self.message)
+
+        return message
+
+class MissingArgumentException(SDLogReaderException):
+    """\
+    Raised when a required argument was not given, especially when not
+    running in interactive mode.
+
+    Args:
+        name (str): missing argument's name
+
+    """
+    def __init__(self,name):
+        self.name = name
 
     def __str__(self):
-        return 'Not connected'
+        return 'Expected \'{0}\' argument was missing'.format(self.name)
 
